@@ -1,0 +1,173 @@
+\usepackage{times}
+\usepackage{natbib}
+\setcitestyle{sort,comma,numbers,square}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{mathtools,bm,amssymb,xcolor}
+\usepackage{hyperref}
+\usepackage{subcaption,placeins}
+\usepackage{adjustbox,multirow,dcolumn}
+\usepackage{algorithm,algpseudocode,setspace}
+\usepackage{xstring}
+\usepackage{cleveref}
+\usepackage{graphicx}
+% \usepackage{natbib}
+% \usepackage[numbers]{natbib}
+% \usepackage[numbers,sort]{natbib}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% authors
+\newcommand{\authornote}[1]{\textsuperscript{\rm {#1}}}
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand*\samethanks[1][\value{footnote}]{%
+    \footnotemark[#1]\hspace{0.4em}}
+
+% notes
+\newcommand{\fixme}{\marginpar{FIXME}}
+\newcommand{\todo}{\marginpar{TODO}}
+% \newcommand{\rebuttal}[1]{{\color{blue}{#1}}}
+\newcommand{\revise}[1]{{\color{blue}{#1}}}
+
+% math
+\input{math_commands}
+
+% units
+\newcommand{\mega}{\,\textrm{M}}
+\newcommand{\giga}{\,\textrm{G}}
+\newcommand{\tera}{\,\textrm{T}}
+\newcommand{\peta}{\,\textrm{P}}
+
+% latin
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi}
+\newcommand{\Eg}{\emph{E.g\@\onedot}}
+\newcommand{\eg}{\emph{e.g\@\onedot}}
+\newcommand{\etc}{\emph{etc\@\onedot}}
+\newcommand{\etal}{\emph{et~al\@\onedot}}
+\newcommand{\Ie}{\emph{I.e\@\onedot}}
+\newcommand{\ie}{\emph{i.e\@\onedot}}
+\newcommand{\versus}{\texorpdfstring{\emph{vs\@\onedot}}{vs.}}
+\newcommand{\viceversa}{\emph{vice versa}}
+\newcommand{\wrt}{\emph{w.r.t\@\onedot}}
+\newcommand{\subto}{\emph{s.t\@\onedot}}
+\newcommand{\numero}[1]{No\@.\ {#1}}
+\newcommand{\numeros}[1]{Nos\@.\ {#1}}
+\newcommand{\ordinal}[1]{{#1}\textsuperscript{th}}
+
+% figures
+\graphicspath{{figures/}}
+\DeclareRobustCommand{\inlinegraphics}[2][1]{%
+  \begingroup\normalfont%
+  \includegraphics[height=#1\fontcharht\font`\B]{#2}%
+  \endgroup
+}
+
+% tikz
+\usetikzlibrary{external}
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{compat=newest}
+\tikzexternalize[prefix=tikz/]
+\newcommand{\tikzsnfn}[1]{%
+    \def\fn{#1}\StrSubstitute{\fn}{/}{_}[\fn]%
+    \tikzsetnextfilename{\fn}}
+% \newtoggle{final}\togglefalse{final}
+% \tikzifexternalizing{\toggletrue{final}}{\togglefalse{final}}
+
+% tables
+\newcolumntype{d}{D{.}{.}{3.2}}
+\makeatletter
+\newcolumntype{B}{>{\boldmath\DC@{.}{.}{3.2}}c<{\DC@end}}
+\makeatother
+\newcommand{\supstar}{\mbox{\textsuperscript{\( \star \)}}}
+\newcommand{\supcirc}{\mbox{\textsuperscript{\( \circ \)}}}
+\newcommand{\supdagger}{\textsuperscript{\textdagger}}
+\newcommand{\supddagger}{\textsuperscript{\textdaggerdbl}}
+\newcommand{\tbox}[1]{\begin{tabular}[c]{@{}c@{}}#1\end{tabular}}
+\newcommand{\tcenter}[1]{\multicolumn{1}{c}{{#1}}}
+\newcommand{\thead}[1]{\multicolumn{1}{c}{\textbf{#1}}}
+\newcommand{\tbnum}[1]{\multicolumn{1}{B}{#1}}
+\newcommand{\tna}{\tcenter{---}}
+\newcommand{\tpm}[2]{\( {#1}{\scriptstyle \pm #2} \)}
+\newcommand{\tbpm}[2]{\tpm{\mathbf{#1}}{#2}}
+\newcommand{\tbgreen}[1]{\textcolor[rgb]{0,0.502,0}{#1}}
+\newcommand{\tbred}[1]{\textcolor[rgb]{0.502,0,0}{#1}}
+
+% macros
+\newcommand{\methodverb}{{method}}
+\newcommand{\MethodVerb}{{Method}}
+\newcommand{\method}{\emph{\methodverb}}
+\newcommand{\Method}{\emph{\MethodVerb}}
+\newcommand{\methodrm}{\textrm{\methodverb}}
+\newcommand{\idx}[2]{{#1}^{\scriptscriptstyle[{#2}]}}
+\newcommand{\cifarx}{CIFAR-10}
+\newcommand{\celeba}{CelebA}
+\newcommand{\tin}{\emph{tiny}-ImageNet}
+\newcommand{\tinn}{\emph{tiny}-IN}
+\newcommand{\resnetxviii}{ResNet-18}
+
+% math
+\DeclarePairedDelimiter{\parens}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\angles}{\langle}{\rangle}
+\DeclarePairedDelimiter{\bracks}{[}{]}
+\DeclarePairedDelimiter{\braces}{\{}{\}}
+\DeclarePairedDelimiter{\verts}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\Verts}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\floors}{\lfloor}{\rfloor}
+\newcommand{\shat}[1]{\vphantom{#1}\smash[t]{\hat{#1}}}
+\newcommand{\x}{{\mathbf{x}}}
+\newcommand{\z}{{\mathbf{z}}}
+\newcommand{\xbd}{{\shat{\x}}}
+\newcommand{\xaug}{{\x_\mathrm{a}}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\density}{{\rho}}
+\newcommand{\weight}{{\bm\theta}}
+\newcommand{\trigger}{{\bm\tau}}
+\newcommand{\dataset}{\mathcal{D}}
+\newcommand{\testset}{\dataset_\textrm{test}}
+\newcommand{\trainset}{\dataset_\textrm{train}}
+\newcommand{\bdset}{\mathcal{D}_\textrm{bd}}
+\newcommand{\realset}{\mathbb{R}}
+\newcommand{\inputset}{\mathcal{I}}
+\newcommand{\classset}{\mathcal{C}}
+\newcommand{\intensorset}{%
+    \ensuremath{\left[0, 1\right]}^{{C}\times{H}\times{W}}}
+\newcommand{\outputset}{\realset^K}
+\newcommand{\stepsize}{\alpha}
+\newcommand{\lrmodel}{\stepsize_\textrm{model}}
+\newcommand{\lrmethod}{\stepsize_\methodrm}
+\newcommand{\momentum}{\nu}
+\DeclareMathOperator{\transform}{\mathcal{T}}
+\DeclareMathOperator{\fltransform}{\mathcal{T}_{\trigger}}
+\DeclareMathOperator{\target}{\pi}
+\DeclareMathOperator{\bigO}{\mathcal{O}}
+\DeclareMathOperator{\loss}{\mathcal{L}}
+\DeclareMathOperator{\sceloss}{\mathcal{L}^\textrm{sce}}
+\DeclareMathOperator{\project}{\mathcal{P}_{\epsilon, [-1, 1]}}
+\DeclareMathOperator{\dist}{{dist}}
+\DeclareMathOperator{\norm}{{norm}}
+\DeclareMathOperator{\onehot}{{onehot}}
+\DeclareMathOperator{\indicator}{{1}}
+\DeclareMathOperator{\betadist}{\mathcal{B}}
+\DeclareMathOperator{\augment}{aug}
+\DeclareMathOperator{\sample}{sample}
+\DeclareMathOperator{\batchsample}{minibatch}
+\DeclareMathOperator{\gridsample}{grid\_sample}
+
+% plots
+\newcommand{\hpad}{\hspace*{\fill}}
+\newcommand{\subplotsizeslack}{1}
+\NewDocumentCommand{\subplot}{ O{1} O{} m m m }{%
+    \hpad%
+    \begin{subfigure}{(\textwidth / #1) * \subplotsizeslack}
+        \includegraphics[width=\textwidth, #2]{#3}
+        \caption{#4}\label{#5}
+    \end{subfigure}%
+}

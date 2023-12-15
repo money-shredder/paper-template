@@ -1,0 +1,33 @@
+\begin{table}[ht]
+\centering
+\caption{%
+    An example table.
+}\label{tab:example}%
+\adjustbox{max width=\textwidth}{%
+\begin{tabular}{lccc}
+\toprule
+Example
+    & \tcenter{Accuracy}
+    & \tcenter{\Delta{} FLOPs}
+    & \tcenter{\Delta{} Comm. Params} \\
+\midrule
+Related A
+    & \tpm{00.00\%}{0.00\%}
+    & \tpm{00.00\peta}{000.00\tera}
+    & \tpm{00.00\giga}{000.00\mega} \\
+Related B
+    & \tpm{00.00\%}{0.00\%}
+    & \tpm{\tbred{00.00\peta}}{000.00\tera}
+    & \tpm{\tbred{00.00\giga}}{000.00\mega} \\
+Related C
+    & \tpm{00.00\%}{0.00\%}
+    & \tpm{\tbred{00.00\peta}}{000.00\tera}
+    & \tpm{\tbred{00.00\giga}}{000.00\giga} \\
+\midrule
+Method (Ours)
+    & \tbpm{00.00\%}{0.00\%}
+    & \tpm{\tbgreen{00.00\peta}}{000.00\peta}
+    & \tpm{\tbgreen{00.00\giga}}{000.00\giga} \\
+\bottomrule
+\end{tabular}}
+\end{table}
