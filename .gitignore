@@ -1,3 +1,6 @@
+# If your tex distribution is configured
+# to use latexmk for building,
+# then you only need the next line.
 build/
 
 ## Core latex/pdflatex auxiliary files:
