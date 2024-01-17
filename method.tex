@@ -24,6 +24,14 @@ Use \verb|\label{fig:section:...}| to label a figure,
 \verb|\label{fig:section:figure_name:...}| to label a subfigure,
 and \verb|\label{tab:section:...}| to label a table.
 
+Cite papers with \cite{author19shorthand}.
+Cite authors with \citet{author19shorthand}.
+Sometimes you may want to cite a paper
+in parentheses,
+like this: \citep{author19shorthand}
+(note that under this template,
+\verb|\citep| is the same as \verb|\cite|).
+
 \subsection{Figures}\label{sub:method:figures}
 
 For figures,
@@ -161,8 +169,9 @@ use the following to construct macros:
 
 \end{itemize}
 
-Use \verb|\( ... \)| to surround inline math,
-\verb|\begin{equation}| and \verb|\end{equation}|
+Use \verb|\(...\)| to surround inline math,
+avoid using \verb|$...$|.
+Use \verb|\begin{equation}| and \verb|\end{equation}|
 for display-style equations,
 and
 \begin{verbatim}
