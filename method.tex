@@ -1,0 +1,185 @@
+\section{Method}\label{sec:method}
+
+\subsection{Paper-specific Macros}\label{sub:method:macros}
+
+It is recommended (and \textbf{compulsory!})
+that you define macros
+in \verb|common.tex|
+for paper-specific macros,
+using \verb|\newcommand|, \verb|\DeclareMathoOperator|, \etc{}
+For example,
+to define a macro \verb|\method{}| for the method name,
+use \verb|\newcommand{\method}{Method}|.
+
+
+\subsection{Cross References}\label{sub:method:crossref}
+
+Use \verb|\label{sec:...}|
+to label a section,
+\verb|\label{sec:...:...}|
+to label a subsection,
+\etc{}
+
+Use \verb|\label{fig:section:...}| to label a figure,
+\verb|\label{fig:section:figure_name:...}| to label a subfigure,
+and \verb|\label{tab:section:...}| to label a table.
+
+Cite papers with \cite{author19shorthand}.
+Cite authors with \citet{author19shorthand}.
+Sometimes you may want to cite a paper
+in parentheses,
+like this: \citep{author19shorthand}
+(note that under this template,
+\verb|\citep| is the same as \verb|\cite|).
+
+\subsection{Figures}\label{sub:method:figures}
+
+For figures,
+use
+\begin{verbatim}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\linewidth]{example}
+    \caption{An example figure.}\label{fig:example}
+\end{figure}
+\end{verbatim}
+to include a figure
+from \verb|figures/example.pdf|.
+It will be rendered as \Cref{fig:example}.
+Use \verb|\subplot| to include subfigures.
+For example,
+to render \Cref{fig:subfigs},
+use
+\begin{verbatim}
+\begin{figure}[ht]
+    \centering
+    % The optional [2] means 2 subfigures per row,
+    % if not specified, it defaults to 1 subfigure per row.
+    % The optional argument [trim=50pt 10pt 50pt 10pt, clip]
+    % trims the figure by 50pt on the left, 10pt on the bottom,
+    % 50pt on the right, and 10pt on the top,
+    % and clips the figure to the specified size.
+    % The argument {example} points to figures/example.pdf.
+    % The argument {An example subfigure A.} is the caption.
+    % The argument {fig:example:a} is the label.
+    \subplot[2][
+        trim=50pt 10pt 50pt 10pt, clip
+    ]{example}{An example subfigure A.}{fig:example:a}
+    \subplot[2][
+        trim=50pt 10pt 50pt 10pt, clip
+    ]{example}{An example subfigure B.}{fig:example:b}
+    \caption{An example figure with subfigures.}\label{fig:example}
+\end{figure}
+\end{verbatim}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{example}
+    \caption{An example figure.}\label{fig:example}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    % The optional [2] means 2 subfigures per row,
+    % if not specified, it defaults to 1 subfigure per row.
+    % The optional argument [trim=50pt 10pt 50pt 10pt, clip]
+    % trims the figure by 50pt on the left, 10pt on the bottom,
+    % 50pt on the right, and 10pt on the top,
+    % and clips the figure to the specified size.
+    % The argument {example} points to figures/example.pdf.
+    % The argument {An example subfigure A.} is the caption.
+    % The argument {fig:subfigs:a} is the label.
+    \subplot[2][trim=50pt 10pt 50pt 10pt, clip]{example}{%
+        An example subfigure A.
+    }{fig:subfigs:a}%
+    \subplot[2][trim=50pt 10pt 50pt 10pt, clip]{example}{%
+        An example subfigure B.
+    }{fig:subfigs:b}\hpad
+    \caption{An example figure with subfigures.}\label{fig:subfigs}
+\end{figure}
+
+
+\subsection{Math Symbols and Formulae}\label{sub:method:mathematics}
+
+It is recommended (and \textbf{compulsory!})
+that you define macros
+in \verb|common.tex|
+for math symbols,
+and these macros
+can be customized easily later.
+To standardize math symbols,
+use the following to construct macros:
+\begin{itemize}
+
+    \item Random variables:
+    \( \ra, \rb, \rc \).
+
+    \item Random vectors:
+    \( \rva, \rvb, \rvc \).
+
+    \item Elements of random vectors:
+    \( \erva, \ervb, \ervc \).
+
+    \item Random matrices:
+    \( \rmA, \rmB, \rmC \).
+
+    \item Elements of random matrices:
+    \( \ermA, \ermB, \ermC \).
+
+    \item Vectors:
+    \( \vzero, \vone, \va, \vb, \vc \).
+
+    \item Elements of vectors:
+    \( \eva, \evb, \evc \).
+
+    \item Matrix:
+    \( \mA, \mB, \mC \).
+
+    \item Entries of a matrix:
+    \( \emA, \emB, \emC \).
+
+    \item Tensor:
+    \( \tA, \tB, \tC \).
+
+    \item Entries of a tensor:
+    \( \etA, \etB, \etC \).
+
+    \item Sets:
+    \( \sA, \sB, \sC \).
+
+    \item Underlying data generating distribution
+    \( \pdata \),
+    empirical distribution defined by the training set
+    \( \ptrain \),
+    model distribution \( \pmodel, \ptildemodel \),
+    autoencoder distributions \( \pencode, \pdecode, \precons \).
+
+    \item Functions:
+    Expectation \( \E \),
+    loss \( \Ls \),
+    KL divergence \( \KL \),
+    Variance \( \Var \),
+    \etc{}
+
+    \item Norms:
+    \( \normlzero \), \( \normlone \), \( \normltwo \),
+    \( \normlp \), \( \normmax \).
+
+    \item Others:
+    \( \argmax \), \( \argmin \), \( \sign \)
+
+\end{itemize}
+
+Use \verb|\(...\)| to surround inline math,
+avoid using \verb|$...$|.
+Use \verb|\begin{equation}| and \verb|\end{equation}|
+for display-style equations,
+and
+\begin{verbatim}
+    \begin{equation}
+        \begin{aligned}
+            ...
+        \end{aligned}\label{eq:abc}
+    \end{equation}
+\end{verbatim}
+for multi-line equations.
+Use \verb|\cref{eq:abc}| to reference the equation above.
