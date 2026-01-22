@@ -17,10 +17,7 @@ jobs:
           texlive-pictures
           latexmk
       - uses: actions/checkout@v2
-      - run: >-
-          latexmk
-          -pdflatex='lualatex -shell-escape -interaction nonstopmode'
-          -pdf paper.tex
+      - run: latexmk -pdf paper.tex
       - id: create_release
         uses: actions/create-release@v1
         env:
