@@ -30,7 +30,6 @@ Based on established best practices for successful ML research papers:
 - Scientific method structure with formal hypothesis testing
 - Identified and discussed limitations
 - Appropriate use of mathematical notation
-- Complete results and analysis before writing begins
 
 ## Editing Guidelines
 
@@ -38,9 +37,15 @@ Based on established best practices for successful ML research papers:
 - Use semantic line breaks for git-based collaboration convention and avoid long lines of source text
 
 ### LaTeX Conventions
-- Use `\Cref{}` for cross-references to figures, tables, sections, etc.
 - Use and update definitions in `common.tex` for shared commands and packages
 - General mathematical notation defined in `math_commands.tex`
+- Use `\Cref{}` for cross-references to figures, tables, sections, etc.
+- Use `\( ... \)` instead of `$...$` for inline math
+- Use `\etal{}`, `\ie{}`, `\eg{}`, etc., for common Latin abbreviations
+
+### Structure Guidelines
+- Figures in `figures/` directory
+- Tables in `tables/` directory
 - Algorithmic descriptions in `algorithms/` directory
 
 ### Math Quality Guidelines
