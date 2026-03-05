@@ -2,6 +2,7 @@
 # to use latexmk for building,
 # then you only need the next line.
 build/
+tikz/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
